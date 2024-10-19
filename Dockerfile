@@ -1,17 +1,21 @@
-# build environment
-FROM node:9.6.1 as builder
+# Build environment
+FROM node:18-alpine as builder  # Update Node.js version
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
+
+# Install dependencies
 COPY package.json /usr/src/app/package.json
 RUN npm install --silent
-RUN npm install react-scripts@1.1.1 -g --silent
+RUN npm install react-scripts@latest -g --silent  # Use latest react-scripts
+
+# Copy the entire app and build
 COPY . /usr/src/app
 RUN npm run build
 
-
-# production environment
-FROM nginx:1.13.9-alpine
+# Production environment
+FROM nginx:alpine  # Use updated version of Nginx
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
+
