@@ -57,10 +57,10 @@ jobs:
         docker build -t ${{ secrets.REGISTRY_SERVER }}/react-app:${{ github.sha }} .
         docker push ${{ secrets.REGISTRY_SERVER }}/react-app:${{ github.sha }}
 
-    # # Step 5: Deploy to Azure Web App using the publish profile
-    - name: 'Deploy to Azure Web App'
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: dockerreactjsdemowebapp  # Your Azure Web App name
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        images: ${{ secrets.REGISTRY_SERVER }}/react-app:${{ github.sha }}
+    # # # Step 5: Deploy to Azure Web App using the publish profile
+    # - name: 'Deploy to Azure Web App'
+    #   uses: azure/webapps-deploy@v2
+    #   with:
+    #     app-name: dockerreactjsdemowebapp  
+    #     publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+    #     images: ${{ secrets.REGISTRY_SERVER }}/react-app:${{ github.sha }}
