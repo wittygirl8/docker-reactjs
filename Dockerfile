@@ -14,7 +14,7 @@ COPY . /usr/src/app
 RUN npm run build
 
 # Production environment
-FROM nginx:alpine  # Use updated version of Nginx
+FROM nginx:alpine  
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
