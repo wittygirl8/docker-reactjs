@@ -6,6 +6,7 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
 # Install dependencies
 COPY package.json /usr/src/app/package.json
+COPY robots.txt /usr/share/nginx/html/robots.txt
 RUN npm install --silent
 RUN npm install react-scripts@latest -g --silent  
 
