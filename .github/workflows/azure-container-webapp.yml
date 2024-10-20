@@ -51,6 +51,7 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD_1 }}
 
+
     # Step 3: Build and Push Docker Image
     - name: Build and push Docker image
       run: |
