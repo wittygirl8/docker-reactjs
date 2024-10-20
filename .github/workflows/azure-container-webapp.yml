@@ -26,8 +26,8 @@
 
 name: Build and Deploy React App to Azure Web App
 
-env:
-  AZURE_WEBAPP_NAME: docker-reactjs  # set this to the name of your Azure Web App
+# env:
+#   AZURE_WEBAPP_NAME: docker-reactjs  # set this to the name of your Azure Web App
 
 on:
   push:
